@@ -13,3 +13,14 @@ import matplotlib.pyplot as plt
 #  plt.imshow(train_x[x])
 #  plt.show()
 
+#importing the required layers and modules to create our convultional neural netwrok architecture
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense 
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.constraints import MaxNorm
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.layers import Conv2D
+from tensorflow.keras.layers import MaxPooling2D
+from keras.utils import np_utils
+
