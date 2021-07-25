@@ -58,4 +58,37 @@ model.compile(loss='categorical_crossentropy',optimizer=sgd,metrics=['accuracy']
 #model.summary()
 
 #training the model 
-model.fit(train_x,train_y,validation_data = (test_x,test_y),epochs=10,batch_size=32)
+model.fit(train_x,train_y,validation_data = (test_x,test_y),epochs=25,batch_size=32)
+
+#calculating the accuracy on testing data 
+_,acc = model.evaluate(test_x,test_y)
+print(acc*100)
+
+#saving the model 
+model.save("model_cifar_10epoch.h5")
+
+# making dictionary to map the output classes 
+results={
+   0:'aeroplane',
+   1:'automobile',
+   2:'bird',
+   3:'cat',
+   4:'deer',
+   5:'dog',
+   6:'frog',
+   7:'horse',
+   8:'ship',
+   9:'truck'
+}
+
+from PIL import Image 
+import numpy as np 
+im=Image.open("__image_path__")
+ 
+# the input image is required to be  (32,32,3)
+
+im=im.resize((32,32))
+im=np.expand_dims(im,axis=0)
+im=np.array(im)
+pred=model.predict_classes([im])[0]
+print(pred,results[pred])
