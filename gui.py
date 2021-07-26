@@ -29,7 +29,7 @@ classes = {
 top=tk.Tk()
 top.geometry('800x600')
 top.title('Image Classification CIFAR10')
-top.configure(background='#CDCDCD')
+top.configure(background='#85946d')
 label=Label(top,background='#CDCDCD', font=('arial',15,'bold'))
 sign_image = Label(top)
 
@@ -47,7 +47,7 @@ def classify(file_path):
 def show_classify_button(file_path):
     classify_b=Button(top,text="Classify Image",
     command=lambda: classify(file_path),padx=10,pady=5)
-    classify_b.configure(background='#364156', foreground='white',font=('arial',10,'bold'))
+    classify_b.configure(background='#85946d', foreground='black',font=('arial',10,'bold'))
     classify_b.place(relx=0.79,rely=0.46)
 
 def upload_image():
@@ -72,6 +72,6 @@ sign_image.pack(side=BOTTOM,expand=True)
 label.pack(side=BOTTOM,expand=True)
 heading = Label(top, text="Image Classification CIFAR10",pady=20, font=('arial',20,'bold'))
 
-heading.configure(background='#CDCDCD',foreground='#364156')
+heading.configure(background='#85946d',foreground='#364156')
 heading.pack()
 top.mainloop()
